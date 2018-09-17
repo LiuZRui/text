@@ -1,0 +1,94 @@
+<! DOCTYPE html>
+<html>
+<head>
+<title> Welcome to WebGL<title>
+	<link rel="stylesheet" href"../css/webglbook.css"/>
+	<script src="Three.js"></script>
+	<script src="libs/RequestAnimationFrame.js"></script>
+	<script>
+	
+	var renderer = null,
+		scene = null,
+		camera = null,
+		cube = null,
+		animating = fales;
+	function onLanf()
+	{
+	  var container = document.getElementById("container");
+	  renderer = new THREE.WebGLRenderer({antialias: true});
+	  renderer.setSize(container.offisetWidth,container.offisetHeidht);
+	  container.appendChild(renderer.domElement);
+	  scene = new THREE.Scene();
+	  camera = new THREE.PerspectiveCamera(45,
+		container.offisetWidth / container.offisetHeidht,1,4000);
+	camera.position.set(0,0,3);
+	var ligth = new THREE.DirectionaLight(oxffffff,1.5)
+	light.position.set(0.0.1);
+	scene.add(light);
+	var mapurl = " 
+	var map = THREE.ImageUtils.loadTexture(mapurl);
+	var material = new THREE.MeshphongMaterial({map:map});
+	var geometry = new THREE.CubeGeometry（1,1,1）;
+	cube = new THREE.Mesh(geometry,material);
+	cube.rotation.x = Math.PI / 5;
+	cube.rotation.y = Math.PI / 5;
+	scene.add(cube);
+	addMouseHandler();
+	run();
+	}
+	function.run()
+	{
+	renderer.render(scene,camera);
+		if(animating)
+		{
+			cube.rotation.y -= 0.01;
+		
+		}
+		requestAnimationFrame(run);
+		
+	}
+	function addMouseHandler()
+	{
+	var dom = renderer.domElement;
+	dom.addEventlistener('mouseup',onMouseUp,fales);
+	}
+	function onMouseUp(event)
+	{
+		event.preventDefault();
+		animating = !animating;
+	}
+	</script>
+	</head>
+	<body onLand = "onLand();" style = "">
+		<center><h1>Welcome to WebGL!</h1></center>
+		<div id = "container"
+			style = "width:95%;height:80%;position:absolute;">
+		</div>
+		<div id="prompt"
+			style = "width:95%;height:6%";bottom:0;position:absolute;">
+			Click to animate the cube 
+		</div>
+	</body >
+
+</html >
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	}
+	
